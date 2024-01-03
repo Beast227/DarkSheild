@@ -15,8 +15,6 @@ function playSoundAlert() {
     var modal = document.getElementById('myModal');
     var body = document.body;
 
-    
-    // Check if the sound element is defined and not null
     if (soundAlert) {
         soundAlert.play();
         soundAlert.loop = true; // Enable loop
