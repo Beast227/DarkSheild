@@ -21,7 +21,7 @@
             <label class="input-link">Enter your link</label>
             <div class="input-button">
                 <input type="text" placeholder="Check your link here">
-                <button id="button-check">Check</button>
+                <button>Check</button>
             </div>
         </div>
     </section>
@@ -36,32 +36,42 @@
 
     <section class="about-awarness" id="about">
         <h1>About</h1>
-        Dark patterns refer to user interface design choices crafted to trick, deceive, or manipulate users into taking actions that they might not have intended. Dark patterns can be seen in 
-        <ul>
-            <li>Websites</li>
-            <li>Apps</li>
-            <li>Other digital interfaces</li>
-        </ul>
-        <iframe  src="https://www.youtube.com/embed/7LqJBCAiEYA?si=ZDOfub_v02zln4qR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-       <iframe  src="https://www.youtube.com/embed/SyeZf50jQXU?si=_OTOuRFm83Yn_l4L" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-       <iframe  src="https://www.youtube.com/embed/udYiXZ8PcDY?si=EoPQSqSsTjSBDBdP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <div class="cards">
+            <div class="card-about"><div class="front"><h3>What is dark pattern?</h3></div><div class="back"><p>An e-commerce dark pattern is a deceptive design tactic in online shopping interfaces that tricks or manipulates users into unintended actions, impacting their shopping decisions and overall experience.</p></div></div>
+            <div class="youtube "><iframe src="https://www.youtube.com/embed/SyeZf50jQXU?si=cOlSQfiRN8z0Eh-c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+            <div class="card-about"><div class="front"><h3>Examples</h3></div><div class="back">
+                <ul>
+                    <li>Hidden Fees</li>
+                    <li>Tricky Opt-Outs </li>
+                    <li> False Scarcity </li>
+                    <li>Misleading Discounts </li>
+                    <li> Forced Account Creation </li>
+                    
+                </ul>
+            </div>
+        </div>
+        </div>
 
     </section>
-    <section class="contactform">
-        <form action="" class="" id="contact">
-            <div class="name">
+    <section class="contactsec">
+        <h1>Contact Us</h1>
+        <form action="" class="contactform" id="contact">
+            <div class="name inputs">
+                <input type="text" required>
                 <label for="">Enter your Name</label>
-                <input type="text" placeholder="Enter name" required>
             </div>
-            <div class="mail">
+            <div class="mail inputs">
+                <input type="text"  required>
                 <label for="">Enter your Email</label>
-                <input type="text" placeholder="Enter email" required>
             </div>
             <div class="feedback">
-                <label for="">Enter your feedback</label>
                 <textarea name="" id="" cols="30" rows="10" ></textarea>
+                <label for="">Enter your feedback</label>
             </div>
-            <button>Submit</button>
+            <div class="button">
+                <button>Submit</button>
+            </div>
+            
         </form>
     </section>
 </body>
