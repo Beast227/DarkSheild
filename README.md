@@ -45,4 +45,6 @@ Open your web browser and visit [http://localhost:5000](http://localhost:5000) t
 ## Note
 This repository is not currently open for contributions.
 
-<h5 align="center"> This project is currently in development.</h5>
+
+
+<h6 align="center"> This project is currently in development.</h5>
