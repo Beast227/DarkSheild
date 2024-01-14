@@ -1,3 +1,57 @@
+*{                                      /*BMY Start*/
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    background:#0c192c;
+}
+
+.bg {
+    position:absolute;
+    width:100%;
+    height:100vh;
+    overflow:hidden;
+}
+
+.bubbles{
+    position:relative;
+    display: flex;
+}
+
+.tag{
+    position: relative;
+}
+.bubbles span{
+    position:relative;
+    min-width: 30px;
+    height:30px;
+    background:#4fc3dc;
+    border-radius: 50%;
+    box-shadow:0 0 10px #4fc3dc44,0 0 50px #4fc3dc,0 0 100px #4fc3dc ;
+    margin:0 4px;
+    animation:animate 15s linear infinite;
+    animation-duration: calc(100s/var(--i));
+}
+
+.bubbles span:nth-child(even){
+    background:rgb(255, 0, 208) ;
+    border-radius: 50%;
+    box-shadow:0 0 10px #6f0036,0 0 50px #ff007b,0 0 100px #ff007b ;
+}
+
+@keyframes animate {
+    0%{
+        transform:translateY(100vh) scale(0.2);
+    }
+    100%{
+        transform:translateY(-100vh) scale(3);
+    }
+}                                                  /*BMY End*/
+
 :root{
     --bgclr :  #0b0a0d ;
     --textclr : #f8f3ff;
@@ -20,6 +74,18 @@
     font-family: 'Poppins', sans-serif;
     font-size: 62.5%;
  }
+
+ .i{                               /*BMY Start*/
+    top:5%;
+    position: absolute;
+    padding: 0;
+    display:inline;
+ }
+.website-branding{
+    margin-left: 80px;
+}                                 /*BMY end*/
+
+
  a{
      text-decoration: none;
      color: inherit;
@@ -71,13 +137,15 @@
      gap: 50px;
  }
  .tagline{
-     font-size: 6.5rem;
-     font-weight: 800;
-     letter-spacing: -1.5px;
- text-align: center;
-     & span{
+    font-size: 6.5rem;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    text-align: center;
+    text-shadow:0px 5px 0px #5f5f5f;          /*modified*/
+    position:relative;                          /*modified*/
+    & span{
          color: var(--accentclr);
-         text-shadow: 0 0 55px rgb(56, 21, 144);;
+         text-shadow: 0 7 0px rgb(56, 21, 144);;
      }
  }
  .input-link{
@@ -129,6 +197,7 @@
      }
  }
  .instruction{
+    box-sizing: border-box;
      gap: 50px;
      width: 100%;
      display: flex;
@@ -138,6 +207,8 @@
          font-size: 6rem;
          text-align: center;
          margin-bottom: 30px;
+         text-decoration: underline;        /*modified*/
+
      }
      & ol{
          gap: 30px;
@@ -154,10 +225,14 @@
  .step{
      display: flex;
      flex-direction: column;
+     transition: transform 0.5s ease-in-out;
      align-items: center;
      & .image-step{
          box-shadow: 0 0 20px var(--secclr);
          border-radius: 20px;
+     }
+     &:hover{
+        transform: scale(1.15);
      }
      & img{
          width: 400px;
