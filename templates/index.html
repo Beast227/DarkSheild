@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Shield</title>
+    <link rel="stylesheet" href="{{url_for('static' , filename = 'css/main.css')}}">
+    <link rel="icon" alt="logo" sizes="180x180" href="{{url_for('static' , filename = 'images/logo.png')}}"/>
+</head>
+<body>
+    <div class="bg">                  <!--background effect-->
+        <div class="bubbles">
+            <span style="--i:11"></span>
+            <span style="--i:12"></span>
+            <span style="--i:24"></span>
+            <span style="--i:10"></span>
+            <span style="--i:14"></span>
+            <span style="--i:23"></span>
+            <span style="--i:18"></span>
+            <span style="--i:16"></span>
+            <span style="--i:19"></span>
+            <span style="--i:20"></span>
+            <span style="--i:22"></span>
+            <span style="--i:25"></span>
+            <span style="--i:18"></span>
+            <span style="--i:21"></span>
+            <span style="--i:13"></span>
+            <span style="--i:15"></span>
+            <span style="--i:26"></span>
+            <span style="--i:17"></span>
+            <span style="--i:13"></span>
+            <span style="--i:28"></span>
+            <span style="--i:11"></span>
+            <span style="--i:12"></span>
+            <span style="--i:24"></span>
+            <span style="--i:10"></span>
+            <span style="--i:14"></span>
+            <span style="--i:23"></span>
+            <span style="--i:18"></span>
+            <span style="--i:16"></span>
+            <span style="--i:19"></span>
+            <span style="--i:20"></span>
+            <span style="--i:22"></span>
+            <span style="--i:25"></span>
+            <span style="--i:18"></span>
+            <span style="--i:21"></span>
+            <span style="--i:13"></span>
+            <span style="--i:15"></span>
+            <span style="--i:26"></span>
+            <span style="--i:17"></span>
+            <span style="--i:13"></span>
+            <span style="--i:28"></span>
+        </div>
+    </div>
+    <nav class="tag">
+        <img class="i" alt="img" height="70px" width="70px" src="{{url_for('static' , filename = 'images/logo.png')}}"/>
+        <div class="website-branding">DARK SHIELD</div>
+        <div class="shortcuts">
+            <div class="about"><a href="#about">About</a></div>
+            <div class="about"><a href="#instructions">Instructions</a></div>
+            <div class="about"><a href="#contact">Contact us</a></div>
+        </div>
+    </nav>
+    <section class="home">
+        <div class="tagline">Safeguarding Your Journey from <br><span>Dark Patterns</span></div>
+        <div class="linkcheck">
+            <p class="input-link">Enter your link</p>
+            <div class="input-button">
+                <label for="url"></label>
+                <input type="text" id="url" name="url" placeholder="Check your link here">
+                <button onclick="checkTimer()">Check</button>
+            </div>
+        </div>
+    </section>
+    <section id="instructions" class="instruction">
+        <h1>Steps to follow</h1>
+        <ol>
+            <div class="step"> <div class="step-1 image-step"><img src="{{url_for('static' , filename = 'images/copy-link.jpg')}}" alt="copy-link-screenshot"></div><li>Copy the link of E-commerce website</li></div>
+            <div class="step"> <div class="step-2 image-step"><img src="{{url_for('static' , filename = 'images/link-ss.jpeg')}}" alt="paste-link-ss" class="second"></div><li>Paste the link in the input box</li></div>
+            <div class="step"> <div class="steps-3 image-step"><img src="{{url_for('static' , filename = 'images/check-button.jpg')}}" alt="button-ss"></div><li>Check for Dark pattern</li></div>
+        </ol>
+    </section>
+
+    <section class="about-awarness" id="about">
+        <h1>About</h1>
+        <div class="cards">
+            <div class="card-about"><div class="front"><h3>What is dark pattern?</h3></div><div class="back"><p>An e-commerce dark pattern is a deceptive design tactic in online shopping interfaces that tricks or manipulates users into unintended actions, impacting their shopping decisions and overall experience.</p></div></div>
+            <div class="youtube "><iframe src="https://www.youtube.com/embed/SyeZf50jQXU?si=cOlSQfiRN8z0Eh-c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
+            <div class="card-about"><div class="front"><h3>Examples</h3></div><div class="back">
+                <ul>
+                    <li>Hidden Fees</li>
+                    <li>Tricky Opt-Outs </li>
+                    <li>False Scarcity </li>
+                    <li>Misleading Discounts </li>
+                    <li>Forced Account Creation </li>
+                    
+                </ul>
+            </div>
+        </div>
+        </div>
+
+    </section>
+    <section class="contactsec">
+        <h1>Contact Us</h1>
+        <form action="" class="contactform" id="contact">
+            <div class="name inputs">
+                <input type="text" required>
+                <label for="">Enter your Name</label>
+            </div>
+            <div class="mail inputs">
+                <input type="text"  required>
+                <label for="">Enter your Email</label>
+            </div>
+            <div class="feedback">
+                <textarea name="" id="" cols="30" rows="10" ></textarea>
+                <label for="">Enter your feedback</label>
+            </div>
+            <div class="button">
+                <button>Submit</button>
+            </div>
+            
+        </form>
+    </section>
+    <script>
+        var isSoundPlaying = false;
+
+    function checkTimer() {
+        console.log('Function called');
+        var url = document.getElementById('url').value;
+
+        // Make an asynchronous request to the Flask endpoint
+        fetch('/check_timer', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: 'url=' + encodeURIComponent(url),
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.has_timer_issues) {
+                // Dark pattern detected
+                playSoundAlert();
+                alert('Warning: Potential client-side timer manipulation. Click OK to stop the alert.');
+            } else {
+                alert('Timer appears to be implemented without client-side issues.');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Error checking timer.');
+        });
+    }
+
+    function playSoundAlert() {
+        var soundAlert = new Audio('path/to/darkPatternAlert.mp3'); // Replace with the actual path
+        var modal = document.getElementById('myModal');
+        var body = document.body;
+
+        if (soundAlert) {
+            soundAlert.play();
+            soundAlert.loop = true; // Enable loop
+            isSoundPlaying = true;
+
+            // Make the body glow (add 'dark-pattern-detected' class)
+            body.classList.add('dark-pattern-detected');
+
+            // Display the modal
+            modal.style.display = 'block';
+
+            // Focus on the modal to trap keyboard focus
+            modal.focus();
+
+            // Add event listener to stop sound on OK button click
+            modal.addEventListener('click', function() {
+                stopSound();
+            });
+        }
+    }
+
+    function stopSound() {
+        var soundAlert = document.getElementById('darkPatternAlert');
+        var modal = document.getElementById('myModal');
+        var body = document.body;
+
+        // Check if the sound element is defined and not null
+        if (soundAlert) {
+            soundAlert.pause();
+            soundAlert.currentTime = 0; // Reset the sound to the beginning
+            isSoundPlaying = false;
+
+            // Hide the modal
+            modal.style.display = 'none';
+
+            // Remove the 'dark-pattern-detected' class from the body
+            body.classList.remove('dark-pattern-detected');
+        }
+    }
+
+    </script>
+</body>
+</html>
