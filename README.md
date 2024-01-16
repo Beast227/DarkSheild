@@ -69,15 +69,15 @@ pip install -r requirements.txt
 
 1. Copy the link from an E-commerce website.
 
-   ![Copy Link](images/copy-link.jpg)
+   ![Copy Link](static/images/copy-link.jpg)
 
 2. Paste the link into the DarkShield website.
 
-   ![Paste Link](images/link-ss.jpeg)
+   ![Paste Link](static/images/link-ss.jpeg)
 
 3. Click the "Check for Dark Pattern" button to analyze the website.
 
-   ![Check Button](images/check-button.jpg)
+   ![Check Button](static/images/check-button.jpg)
 
 
 ## Note
