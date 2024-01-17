@@ -17,29 +17,67 @@ DarkShield is a web application designed to analyze websites for the presence of
 
 ## Installation
 
-To run this project locally, you need to have Python 3.6 or higher and pip installed on your system and a web browser of your choice, such as Chrome, Firefox, or Safari.
-Follow these steps to set up the project:
+### Prerequisites
 
-1. Clone or download this repository to your local machine.
-2. Navigate to the project directory.
-3. Install dependencies: `pip install -r requirements.txt`
-4. Run the application: `python app.py`
+Before you proceed with the installation, ensure you have the following prerequisites:
 
-Open your web browser and visit [http://localhost:5000](http://localhost:5000) to access DarkShield.
+- [Python](https://www.python.org/) installed (version 3.x recommended)
+
+### Setting Up Virtual Environment
+
+1. Clone the repository to your local machine:
+
+    ```bash
+    git clone https://github.com/Beast227/DarkSheild.git
+    ```
+
+2. Navigate to the project directory:
+
+    ```bash
+    cd DarkSheild
+    ```
+
+3. Create a virtual environment:
+
+    ```bash
+    python -m venv venv
+    ```
+
+4. Activate the virtual environment:
+
+    - On Windows:
+
+        ```bash
+        venv\Scripts\activate
+        ```
+
+    - On macOS and Linux:
+
+        ```bash
+        source venv/bin/activate
+        ```
+
+### Installing Dependencies
+
+Install the required dependencies using:
+
+```bash
+pip install -r requirements.txt
+```
 
 ## How to Use
 
 1. Copy the link from an E-commerce website.
 
-   ![Copy Link](images/copy-link.jpg)
+   ![Copy Link](static/images/copy-link.jpg)
 
 2. Paste the link into the DarkShield website.
 
-   ![Paste Link](images/link-ss.jpeg)
+   ![Paste Link](static/images/link-ss.jpeg)
 
 3. Click the "Check for Dark Pattern" button to analyze the website.
 
-   ![Check Button](images/check-button.jpg)
+   ![Check Button](static/images/check-button.jpg)
 
 
 ## Note
