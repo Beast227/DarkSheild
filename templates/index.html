@@ -124,36 +124,34 @@
     <script>
         var isSoundPlaying = false;
 
-    function checkTimer() {
-        console.log('Function called');
-        var url = document.getElementById('url').value;
+        function checkTimer() {
+            var url = document.getElementById('url').value;
 
-        // Make an asynchronous request to the Flask endpoint
-        fetch('/check_timer', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: 'url=' + encodeURIComponent(url),
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.has_timer_issues) {
-                // Dark pattern detected
-                playSoundAlert();
-                alert('Warning: Potential client-side timer manipulation. Click OK to stop the alert.');
-            } else {
-                alert('Timer appears to be implemented without client-side issues.');
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            alert('Error checking timer.');
-        });
-    }
+            fetch('/check_timer', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: 'url=' + encodeURIComponent(url),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.has_timer_issues) {
+                    alert(data.message);
+                } else {
+                    alert(data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error checking timer.');
+            });
+        }
+
+
 
     function playSoundAlert() {
-        var soundAlert = new Audio('path/to/darkPatternAlert.mp3'); // Replace with the actual path
+        var soundAlert = new Audio("{{url_for('static' , filename = 'beep\beep-warning-6387.mp3')}}"); // Replace with the actual path
         var modal = document.getElementById('myModal');
         var body = document.body;
 
