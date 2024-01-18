@@ -41,6 +41,10 @@
     transform-style: preserve-3d;
 }
 
+.website-branding{
+    margin-left: 80px;
+}
+
 .label_2{
     position: relative;
     display:block;

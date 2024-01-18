@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{url_for('static', filename = 'css/log.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.1.0/remixicon.min.css">
+</head>
+<body>
+    <div class="wrapper">
+        <span class="bg-animate"></span>
+        <span class="bg-animate2"></span>
+
+        <div class="form-box login">
+            <h2 class="animation" style="--i:0; --j:21">Login</h2>
+            <form action="#">
+                <div class="input-box animation" style="--i:1; --j:22">
+                    <input type="text" id="username" required>
+                    <label >Username</label>
+                    <!-- <box-icon type='solid' name='user'></box-icon> -->
+                    <i class="ri-user-fill"></i>
+                </div>
+                <div class="input-box animation" style="--i:2; --j:23">
+                    <input type="password" id="pass" required>
+                    <label >Password</label>
+                    <!-- <box-icon type='solid' name='lock-alt'></box-icon> -->
+                    <i class="ri-lock-2-fill"></i>
+                </div>
+                <button type="submit" class="btn animation" style="--i:3; --j:24" id="log">Login</button>
+                <div class="logreg-link animation" style="--i:4; --j:25">
+                    <p>Dont have an account? <a href="#" class="register-link" id="register-link">Sign up</a></p>
+                </div>
+            </form>
+        </div>
+        <div class="info-text login">
+            <h2 class="animation" style="--i:0; --j:20">Welcome Back!</h2>
+            <p class="animation" style="--i:1; --j:21">Lets begin from, Where we left it out the last time.Its nice to meett you again</p>
+        </div>
+<!--Sign up Page-->
+        <div class="form-box register">
+            <h2 class="animation" style="--i:17; --j:0">Sign up</h2>
+            <form action="#">
+                <div class="input-box animation" style="--i:18; --j:1">
+                    <input type="text" id="signUpUsername" required>
+                    <label >Username</label>
+                    <i class="ri-user-fill"></i>
+                </div>
+                <div class="input-box animation" style="--i:19; --j:2">
+                    <input type="E-mail" id="email" required>
+                    <label >E-mail</label>
+                    <i class="ri-mail-line"></i>
+                </div>
+                <div class="input-box animation"  style="--i:20; --j:3">
+                    <input type="password" id="signUpPass" required>
+                    <label >Password</label>
+                    <i class="ri-lock-2-fill"></i>
+                </div>
+                <button type="submit" class="btn animation " style="--i:21; --j:4" id="signup">Sign up</button>
+                <div class="logreg-link animation" style="--i:22; --j:5">
+                    <p>Already have an account? <a href="#" class="login-link">Log in</a></p>
+                </div>
+            </form>
+        </div>
+        <div class="info-text register">
+            <h2 class="animation" style="--i:17; --j:0">Welcome Back!</h2>
+            <p class="animation" style="--i:18; --j:1">Lets begin from, Where we left it out the last time.Its nice to meet you again</p>
+        </div>
+    </div>
+
+
+    <script src="{{url_for('static', filename = 'js/log.js')}}"></script>
+</body>
+</html>

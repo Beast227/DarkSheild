@@ -25,6 +25,10 @@ def check_timer_issues(url):
         return False
 
 @app.route('/')
+def log():
+    return render_template('log.html')
+
+@app.route('/index_html', methods = ['GET'])
 def index():
     return render_template('index.html')
 
