@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{{url_for('static' , filename = 'css/main.css')}}">
     <link rel="icon" alt="logo" sizes="180x180" href="{{url_for('static' , filename = 'images/logo.png')}}"/>
 </head>
-<body>
+<body id = "myModal">
     <div class="bg">                  <!--background effect-->
         <div class="bubbles">
             <span style="--i:11"></span>
@@ -57,7 +57,7 @@
         <div class="website-branding">DARK SHIELD</div>
         <div class="shortcuts">
             <div class="about"><a href="#about">About</a></div>
-            <div class="about"><a href="#instructions">Instructions</a></div>
+            <div class="about"><a href="#inst">Instructions</a></div>
             <div class="about"><a href="#contact">Contact us</a></div>
         </div>
     </nav>
@@ -79,11 +79,11 @@
                 </div>
             </div>
             <div class="input-button">
-                <button  class="btn" onclick="checkAndAlert()">Check</button>
+                <button  class="btn" onclick="checkTimer()">Check</button>
             </div>
         </form>
     </section>
-    <section class="instruction">
+    <section class="instruction" id="inst">
     <h1>Steps to follow</h1>
     <div class="steps">
         <div class="label_1" >
@@ -152,6 +152,7 @@
     </section>
     <script>
         document.querySelector('body').addEventListener('mousemove', eyeball);
+
         function eyeball(event) {
             var eye = document.querySelectorAll('.eye');
             eye.forEach(function (eye) {
@@ -160,13 +161,10 @@
                 let radian = Math.atan2(event.pageX - x, event.pageY - y);
                 let rot = (radian * (180 / Math.PI) * -1) + 270;
                 eye.style.transform = "rotate(" + rot + "deg)";
-            })
+            });
         }
-
-        var isSoundPlaying = false;
-
         function checkTimer() {
-            var url = document.getElementById('url').value;
+            var url = document.getElementById('urlInput').value;
 
             fetch('/check_timer', {
                 method: 'POST',
@@ -178,6 +176,7 @@
             .then(response => response.json())
             .then(data => {
                 if (data.has_timer_issues) {
+                    playSoundAlert();  // Call sound alert function
                     alert(data.message);
                 } else {
                     alert(data.message);
@@ -188,8 +187,6 @@
                 alert('Error checking timer.');
             });
         }
-
-
 
     function playSoundAlert() {
         var soundAlert = new Audio("{{url_for('static' , filename = 'beep\beep-warning-6387.mp3')}}"); // Replace with the actual path
@@ -222,16 +219,12 @@
         var modal = document.getElementById('myModal');
         var body = document.body;
 
-        // Check if the sound element is defined and not null
         if (soundAlert) {
             soundAlert.pause();
-            soundAlert.currentTime = 0; // Reset the sound to the beginning
+            soundAlert.currentTime = 0;
             isSoundPlaying = false;
 
-            // Hide the modal
             modal.style.display = 'none';
-
-            // Remove the 'dark-pattern-detected' class from the body
             body.classList.remove('dark-pattern-detected');
         }
     }
