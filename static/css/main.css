@@ -101,19 +101,19 @@
     margin-bottom: 3px;
 }
 .card .back_1{
-    background:url('./images/copy-link.jpg');
+    background:url('../images/copy-link.jpg');
     background-size:cover;
     box-shadow: 0 0 20px var(--secclr);
     transform:rotateY(180deg);
 }
 .card .back_2{
-    background:url('./images/link-ss.jpeg');
+    background:url('../images/link-ss.jpeg');
     background-size:cover;
     box-shadow: 0 0 20px var(--secclr);
     transform:rotateY(180deg);
 }
 .card .back_3{
-    background:url('./images/check-button.jpg');
+    background:url('../images/check-button.jpg');
     background-size:cover;
     transform:rotateY(180deg);
 }
