@@ -61,26 +61,55 @@
             <div class="about"><a href="#contact">Contact us</a></div>
         </div>
     </nav>
+    <div class="face">
+        <div class="eyes">
+            <div class="eye"></div>
+            <div class="eye"></div>
+        </div>
+    </div>
     <section class="home">
-        <div class="tagline">Safeguarding Your Journey from <br><span>Dark Patterns</span></div>
-        <div class="linkcheck">
-            <p class="input-link">Enter your link</p>
+        <div class="tagline">
+            Safeguarding Your Journey from <br><span>Dark Patterns</span>
+        </div>
+        <form >
+            <div class="container">
+                <label class="input-link">Enter your link</label>
+                <div class="inputs">
+                    <input type="url" id="urlInput" placeholder="https://example.com"  required>
+                </div>
+            </div>
             <div class="input-button">
-                <label for="url"></label>
-                <input type="text" id="url" name="url" placeholder="Check your link here">
-                <button onclick="checkTimer()">Check</button>
+                <button  class="btn" onclick="checkAndAlert()">Check</button>
+            </div>
+        </form>
+    </section>
+    <section class="instruction">
+    <h1>Steps to follow</h1>
+    <div class="steps">
+        <div class="label_1" >
+            <div class="card">
+                <div class="front"><h2>Step1 : Copy the link of the Website</h2></div>
+                <div class="back_1"></div>
             </div>
         </div>
+    </div>
+    <div class="steps">
+        <div class="label_2" >
+            <div class="card">
+                <div class="front"><h2>Step2 : Paste the link in the input box <br></h2></div>
+                <div class="back_2"></div>
+            </div>
+        </div>
+    </div>
+    <div class="steps">
+        <div class="label_3" >
+            <div class="card">
+                <div class="front"><h2>Step3 : Click on the check Button</h2></div>
+                <div class="back_3"></div>
+            </div>
+        </div>
+    </div>
     </section>
-    <section id="instructions" class="instruction">
-        <h1>Steps to follow</h1>
-        <ol>
-            <div class="step"> <div class="step-1 image-step"><img src="{{url_for('static' , filename = 'images/copy-link.jpg')}}" alt="copy-link-screenshot"></div><li>Copy the link of E-commerce website</li></div>
-            <div class="step"> <div class="step-2 image-step"><img src="{{url_for('static' , filename = 'images/link-ss.jpeg')}}" alt="paste-link-ss" class="second"></div><li>Paste the link in the input box</li></div>
-            <div class="step"> <div class="steps-3 image-step"><img src="{{url_for('static' , filename = 'images/check-button.jpg')}}" alt="button-ss"></div><li>Check for Dark pattern</li></div>
-        </ol>
-    </section>
-
     <section class="about-awarness" id="about">
         <h1>About</h1>
         <div class="cards">
@@ -105,15 +134,15 @@
         <form action="" class="contactform" id="contact">
             <div class="name inputs">
                 <input type="text" required>
-                <label for="">Enter your Name</label>
+                <label for="name">Enter your Name</label>
             </div>
             <div class="mail inputs">
-                <input type="text"  required>
-                <label for="">Enter your Email</label>
+                <input type="Email"  required>
+                <label for="Email">Enter your Email</label>
             </div>
             <div class="feedback">
                 <textarea name="" id="" cols="30" rows="10" ></textarea>
-                <label for="">Enter your feedback</label>
+                <label for="feedback">Enter your feedback</label>
             </div>
             <div class="button">
                 <button>Submit</button>
@@ -122,6 +151,18 @@
         </form>
     </section>
     <script>
+        document.querySelector('body').addEventListener('mousemove', eyeball);
+        function eyeball(event) {
+            var eye = document.querySelectorAll('.eye');
+            eye.forEach(function (eye) {
+                let x = (eye.getBoundingClientRect().left) + (eye.clientWidth / 2);
+                let y = (eye.getBoundingClientRect().top) + (eye.clientHeight / 2);
+                let radian = Math.atan2(event.pageX - x, event.pageY - y);
+                let rot = (radian * (180 / Math.PI) * -1) + 270;
+                eye.style.transform = "rotate(" + rot + "deg)";
+            })
+        }
+
         var isSoundPlaying = false;
 
         function checkTimer() {
