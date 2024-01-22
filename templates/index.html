@@ -8,7 +8,7 @@
     <link rel="icon" alt="logo" sizes="180x180" href="{{url_for('static' , filename = 'images/logo.png')}}"/>
 </head>
 <body id = "myModal">
-    <div class="bg">                  <!--background effect-->
+    <div class="bg">
         <div class="bubbles">
             <span style="--i:11"></span>
             <span style="--i:12"></span>
@@ -173,61 +173,10 @@
                 },
                 body: 'url=' + encodeURIComponent(url),
             })
-            .then(response => response.json())
-            .then(data => {
-                if (data.has_timer_issues) {
-                    playSoundAlert();  // Call sound alert function
-                    alert(data.message);
-                } else {
-                    alert(data.message);
-                }
-            })
             .catch(error => {
                 console.error('Error:', error);
-                alert('Error checking timer.');
             });
         }
-
-    function playSoundAlert() {
-        var soundAlert = new Audio("{{url_for('static' , filename = 'beep\beep-warning-6387.mp3')}}"); // Replace with the actual path
-        var modal = document.getElementById('myModal');
-        var body = document.body;
-
-        if (soundAlert) {
-            soundAlert.play();
-            soundAlert.loop = true; // Enable loop
-            isSoundPlaying = true;
-
-            // Make the body glow (add 'dark-pattern-detected' class)
-            body.classList.add('dark-pattern-detected');
-
-            // Display the modal
-            modal.style.display = 'block';
-
-            // Focus on the modal to trap keyboard focus
-            modal.focus();
-
-            // Add event listener to stop sound on OK button click
-            modal.addEventListener('click', function() {
-                stopSound();
-            });
-        }
-    }
-
-    function stopSound() {
-        var soundAlert = document.getElementById('darkPatternAlert');
-        var modal = document.getElementById('myModal');
-        var body = document.body;
-
-        if (soundAlert) {
-            soundAlert.pause();
-            soundAlert.currentTime = 0;
-            isSoundPlaying = false;
-
-            modal.style.display = 'none';
-            body.classList.remove('dark-pattern-detected');
-        }
-    }
 
     </script>
 </body>
