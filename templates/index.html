@@ -61,20 +61,25 @@
             <div class="about"><a href="#contact">Contact us</a></div>
         </div>
     </nav>
-   
+    <div class="face">
+        <div class="eyes">
+            <div class="eye"></div>
+            <div class="eye"></div>
+        </div>
+    </div>
     <section class="home">
         <div class="tagline">
             Safeguarding Your Journey from <br><span>Dark Patterns</span>
         </div>
-        <form class="linkcheck">
-           
+        <form >
+            <div class="container">
                 <label class="input-link">Enter your link</label>
-           
-            <div class="input-button">
                 <div class="inputs">
                     <input type="url" id="urlInput" placeholder="https://example.com"  required>
                 </div>
-                <button onclick="checkTimer()">Check</button>
+            </div>
+            <div class="input-button">
+                <button  class="btn" onclick="checkTimer()">Check</button>
             </div>
         </form>
     </section>
@@ -108,9 +113,9 @@
     <section class="about-awarness" id="about">
         <h1>About</h1>
         <div class="cards">
-            <div class="card-about"><h3>What is dark pattern?</h3><p>An e-commerce dark pattern is a deceptive design tactic in online shopping interfaces that tricks or manipulates users into unintended actions, impacting their shopping decisions and overall experience.</p></div>
+            <div class="card-about"><div class="front"><h3>What is dark pattern?</h3></div><div class="back"><p>An e-commerce dark pattern is a deceptive design tactic in online shopping interfaces that tricks or manipulates users into unintended actions, impacting their shopping decisions and overall experience.</p></div></div>
             <div class="youtube "><iframe src="https://www.youtube.com/embed/SyeZf50jQXU?si=cOlSQfiRN8z0Eh-c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
-            <div class="card-about"><h3>Examples</h3><div>
+            <div class="card-about"><div class="front"><h3>Examples</h3></div><div class="back">
                 <ul>
                     <li>Hidden Fees</li>
                     <li>Tricky Opt-Outs </li>
@@ -128,15 +133,15 @@
         <h1>Contact Us</h1>
         <form action="" class="contactform" id="contact">
             <div class="name inputs">
-                <input type="text" id ="name" required>
+                <input type="text" required>
                 <label for="name">Enter your Name</label>
             </div>
             <div class="mail inputs">
-                <input type="Email" id="Email" required>
+                <input type="Email"  required>
                 <label for="Email">Enter your Email</label>
             </div>
             <div class="feedback">
-                <textarea name="" id="feedback" cols="30" rows="10" required></textarea>
+                <textarea name="" id="" cols="30" rows="10" ></textarea>
                 <label for="feedback">Enter your feedback</label>
             </div>
             <div class="button">
@@ -146,7 +151,19 @@
         </form>
     </section>
     <script>
-         function checkTimer() {
+        document.querySelector('body').addEventListener('mousemove', eyeball);
+
+        function eyeball(event) {
+            var eye = document.querySelectorAll('.eye');
+            eye.forEach(function (eye) {
+                let x = (eye.getBoundingClientRect().left) + (eye.clientWidth / 2);
+                let y = (eye.getBoundingClientRect().top) + (eye.clientHeight / 2);
+                let radian = Math.atan2(event.pageX - x, event.pageY - y);
+                let rot = (radian * (180 / Math.PI) * -1) + 270;
+                eye.style.transform = "rotate(" + rot + "deg)";
+            });
+        }
+        function checkTimer() {
             var url = document.getElementById('urlInput').value;
 
             fetch('/check_timer', {

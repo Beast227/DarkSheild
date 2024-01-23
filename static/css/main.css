@@ -249,13 +249,13 @@ body{
      font-size: 6.5rem;
      font-weight: 800;
      letter-spacing: -1.5px;
-     /*text-shadow:0px 5px 0px #777777;          modified*/
+     text-shadow:0px 5px 0px #777777;
      text-align: center;
-     /*position:relative;                          /*modified*/
+     position:relative;
 
      & span{
          color: var(--accentclr);
-         text-shadow: 0 7 0px rgb(56, 21, 144);;
+         text-shadow: 0 7 2px rgb(56, 21, 144);;
      }
  }
  .tagline span{
@@ -263,11 +263,11 @@ body{
     font-weight: 800;
     letter-spacing: -1.5px;
     text-align: center;
-    /*text-shadow:0px 5px 0px #5e00aa;          /*modified*/
+    text-shadow:0px 5px 2px #5e00aa;
     /*position:relative;                          /*modified*/
     & span{
          color: var(--accentclr);
-         text-shadow: 0 7 0px rgb(56, 21, 144);;
+         text-shadow: 0 7 0px rgb(72, 0, 255);;
      }
  }
 
@@ -473,6 +473,7 @@ body{
         display: flex;
 justify-content: center;
 
+
         width: 100%;
     }
             & button{
@@ -487,6 +488,7 @@ justify-content: center;
                 transition: background-color 0.1s,border 0.1s;
                 &:hover{
                     cursor: pointer;
+                    box-shadow: 0 0 15px rgb(137, 90, 255);
                 }
                 &:active{
                     border: 2px solid var(--accentclr);
