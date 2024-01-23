@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
 :root{
     --bgclr :  #0b0a0d ;
     --textclr : #f8f3ff;
@@ -6,7 +7,8 @@
     --accentclr:#8e6fcd ;
  }
  ::selection{
-     color: var(--secclr);
+     color: var(--textclr);
+     background-color: var(--primaryclr);
  }
  *{
      margin: 0;
@@ -14,7 +16,6 @@
      box-sizing: border-box;
     font-family:'Poppins',sans-serif;
  }
- @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap');
  html{
     background-color: var(--bgclr);
     color: var(--textclr);
@@ -37,7 +38,7 @@
     left:10%;
     transform:translate(-50%,-50%);
     cursor: pointer;
-    perspective: 300px;
+    perspective: 750px;
     transform-style: preserve-3d;
 }
 
@@ -56,12 +57,14 @@
     left:90%;
     transform:translate(-50%,-50%);
     cursor: pointer;
-    perspective: 300px;
+    perspective: 750px;
     transform-style: preserve-3d;
 }
 
 .front{
     padding:30px;
+    background: url('../images/bg.avif');
+    background-position: center;
 }
 
 .label_3{
@@ -76,7 +79,7 @@
     left:10%;
     transform:translate(-50%,-50%);
     cursor: pointer;
-    perspective: 300px;
+    perspective: 750px;
     transform-style: preserve-3d;
 }
 
@@ -84,10 +87,11 @@
     position: relative;
     width:100%;
     height:100%;
-    transform-style: preserve-3d;
     text-align: center;
+    font-size: 1.5em;
     z-index: 20;
     transition:all 1400ms;
+    transform-style: preserve-3d;
 }
 
 .card div{
@@ -95,10 +99,11 @@
     width:100%;
     height:100%;
     background-color: #111;
-    text-align: center;
-    background-size:cover;
-    line-height:200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     backface-visibility: hidden;
+    background-position: center;
 }
 
 .steps{
@@ -147,70 +152,8 @@
     border-radius:1px;
     padding:5px 10px 5px 10px;
 }
-
-.face{
-    left:47%;
-    top:150px;
-    position:relative;
-    width:60px;
-    height:60px;
-    border-radius:50%;
-    background:#fff700;
-    display:flex;
-    justify-content: center;
-    align-items:center;
-}
-
-.face::before{
-    content:'';
-    position:absolute;
-    width:35px;
-    height:10px;
-    border-radius:0 0 70px 70px;
-    background: #b57700;
-    top:45px;
-    transition: 0.5s;
-}
-
-.face:hover::before{
-    top:45px;
-    width:19px;
-    height:6px;
-    background: #b57700;
-    border-radius:0;
-}
-
-.eyes{
-    position:relative;
-    top:-40px;
-    display:flex;
-}
-
-.eyes .eye{ 
-    position:relative;
-    width:80px;
-    height:80px;
-    background:#fff;
-    /* margin:0 15px; */
-    border-radius:50%;
-    display:block;
-}
-
-.eyes .eye::before{
-    content:'';
-    position: absolute;
-    top:50%;
-    left:25px;
-    transform:translate(-50%,-50%);
-    width: 40px;
-    height: 40px;
-    background:#333;
-    border-radius:50%;
-}
-
 body{
     min-height:100vh;
-    background:#0c192c;
 }
 
 .bg {
@@ -232,18 +175,12 @@ body{
     position:relative;
     min-width: 30px;
     height:30px;
-    background:#4fc3dc;
+    background: rgba(128, 128, 128, 0.14);
     border-radius: 50%;
-    box-shadow:0 0 10px #4fc3dc44,0 0 50px #4fc3dc,0 0 100px #4fc3dc ;
+    box-shadow:0 0 10px #999 ;
     margin:0 4px;
     animation:animate 15s linear infinite;
     animation-duration: calc(100s/var(--i));
-}
-
-.bubbles span:nth-child(even){
-    background:rgb(255, 0, 208) ;
-    border-radius: 50%;
-    box-shadow:0 0 10px #6f0036,0 0 50px #ff007b,0 0 100px #ff007b ;
 }
 
 @keyframes animate {
@@ -312,9 +249,9 @@ body{
      font-size: 6.5rem;
      font-weight: 800;
      letter-spacing: -1.5px;
-     text-shadow:0px 5px 0px #777777;          /*modified*/
+     /*text-shadow:0px 5px 0px #777777;          modified*/
      text-align: center;
-     position:relative;                          /*modified*/
+     /*position:relative;                          /*modified*/
 
      & span{
          color: var(--accentclr);
@@ -326,8 +263,8 @@ body{
     font-weight: 800;
     letter-spacing: -1.5px;
     text-align: center;
-    text-shadow:0px 5px 0px #5e00aa;          /*modified*/
-    position:relative;                          /*modified*/
+    /*text-shadow:0px 5px 0px #5e00aa;          /*modified*/
+    /*position:relative;                          /*modified*/
     & span{
          color: var(--accentclr);
          text-shadow: 0 7 0px rgb(56, 21, 144);;
@@ -344,12 +281,11 @@ body{
      justify-content: center;
      align-items: center;
      gap: 15px;
- 
  }
  .input-button{
      display: flex;
-     gap: 20px;
-    
+    flex-direction: column;
+    align-items: center;
      & input{
          width: 300px;
          height: 45px;
@@ -358,11 +294,8 @@ body{
          padding-left: 43px;
         box-shadow: 0 0 10px rgb(146, 148, 255);
         font-size: 1.6rem;
-         &:focus{
-             outline: 2px solid var(--primaryclr);
-             box-shadow: 0 0 10px var(--primaryclr);
- 
-         }
+        background: transparent;
+        outline: 1px solid white;
      }
      & button{
          height: 45px;
@@ -394,7 +327,7 @@ body{
          font-size: 6rem;
          text-align: center;
          margin-bottom: 30px;
-         text-shadow:0px 5px 0px #777777; 
+         /* text-shadow:0px 5px 0px #777777;  */
      }
      & ol{
          gap: 30px;
@@ -441,6 +374,7 @@ body{
     font-size: 1.8rem;
     & h3{
         font-size: 2.8rem;
+        text-shadow: 0 0 15px var(--secclr);
     }
     & .cards{
        display: flex;
@@ -451,7 +385,7 @@ body{
         font-size: 6rem;
         text-align: center;
         margin-bottom: 40px;
-        text-shadow:0px 5px 0px #777777;          /*modified*/
+        /*text-shadow:0px 5px 0px #777777;          /*modified*/
     }
     & .card-about{
         border: 1px solid white;
@@ -464,7 +398,7 @@ body{
         height: 350px;
         gap: 10px;
         border-radius: 20px;
-        background: url(images/bg.avif);
+        background: url('../images/bg.avif');
         background-position: center;
         transition: transform 0.5s, box-shadow 0.5s;
         &:hover{
@@ -507,7 +441,7 @@ body{
             font-size: 6rem;
             text-align: center; 
             margin-bottom: 40px;
-            text-shadow:0px 5px 0px #777777;          /*modified*/  
+            /*text-shadow:0px 5px 0px #777777;          /*modified*/  
         }
         & textarea{
             resize: none;
@@ -515,7 +449,7 @@ body{
             border: 2px solid var(--accentclr);
             border-radius: 5px;
             width: 350px;
-            color: var(--secclr);
+            color: var(--textclr);
         font-size: 1.5rem;
         padding: 10px;
         background-color: var(--bgclr);
@@ -528,9 +462,10 @@ body{
         border: 2px solid var(--secclr);
         box-shadow: 0 0 10px var(--secclr);
     }
-    & textarea:focus + label{
+    & textarea:focus + label,
+    & textarea:valid + label{
         color: var(--secclr);
-        transform: translate(-95px,-98px) scale(0.88);
+        transform: translate(-95px,-123px) scale(0.88);
         padding-inline:5px ;
     }
     & .button{
@@ -585,19 +520,19 @@ justify-content: center;
         font-size: 1.5rem;
         padding-left: 10px;
         width: 350px;
-        color: var(--secclr);
+        color: var(--textclr);
         background-color: var(--bgclr);
         transition: box-shadow 0.15s;
     }
     & input:hover{
         box-shadow: 0 0 10px var(--accentclr);
     }
-    & input:focus ,
-    & input:valid {
+    & input:focus {
         border: 2px solid var(--secclr);
         box-shadow: 0 0 10px var(--secclr);
     }
-    & input:focus + label{
+    & input:focus + label,
+    & input:valid + label{
         color: var(--secclr);
         transform: translate(-5px,-28px) scale(0.88);
         padding-inline:5px ;
