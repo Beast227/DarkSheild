@@ -9,8 +9,8 @@ app = Flask(__name__)
 pygame.mixer.init()
 
 # Load the siren sound file
-true_sound = pygame.mixer.Sound("G:/DarkShield/Integraion/static/audio/Congratulations This.mp3")
-false_sound = pygame.mixer.Sound("G:/DarkShield/Integraion/static/audio/This website has exh.mp3")
+true_sound = pygame.mixer.Sound("C:\\Users\\ABHEESHTA\\Desktop\\DarkSheild\\static\\audio\\detected.mp3")
+false_sound = pygame.mixer.Sound("C:\\Users\\ABHEESHTA\\Desktop\\DarkSheild\\static\\audio\\notdetected.mp3")
 
 def check_timer_issues(url):
     response = requests.get(url)
@@ -29,7 +29,7 @@ def check_timer_issues(url):
 def log():
     return render_template('log.html')
 
-@app.route('/index_html', methods = ['GET'])
+@app.route('/index_html', methods=['GET'])
 def index():
     return render_template('index.html')
 
@@ -43,10 +43,12 @@ def check_timer():
             true_sound.play()
         else:
             false_sound.play()
+
+        # Add a return statement here to return a response
+        return jsonify({'success': True})
     except Exception as e:
         print(f"Error in check_timer endpoint: {e}")
         return jsonify({'error': 'Internal server error'}), 500
-
 
 if __name__ == '__main__':
     app.run(debug=True)
