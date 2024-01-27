@@ -9,7 +9,7 @@ from sklearn.linear_model import LogisticRegression
 import pickle
 
 # Load the dataset
-data = pd.read_csv('keywords_ai/falseUrgency.csv')
+data = pd.read_csv('ml_model/falseUrgency.csv')
 
 # Preprocess the text data
 nltk.download('punkt')
@@ -47,6 +47,6 @@ print(f'Accuracy: {accuracy}')
 print('\nClassification Report:')
 print(classification_report(y_test, y_pred))
 
-with open('model.pkl', 'wb') as f:
+with open('ml_model/model.pkl', 'wb') as f:
     pickle.dump(model, f)
     pickle.dump(vectorizer, f)

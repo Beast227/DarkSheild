@@ -49,6 +49,46 @@
             <span style="--i:26"></span>
             <span style="--i:17"></span>
             <span style="--i:13"></span>
+            <span style="--i:11"></span>
+            <span style="--i:12"></span>
+            <span style="--i:24"></span>
+            <span style="--i:10"></span>
+            <span style="--i:14"></span>
+            <span style="--i:23"></span>
+            <span style="--i:18"></span>
+            <span style="--i:16"></span>
+            <span style="--i:19"></span>
+            <span style="--i:20"></span>
+            <span style="--i:22"></span>
+            <span style="--i:25"></span>
+            <span style="--i:18"></span>
+            <span style="--i:21"></span>
+            <span style="--i:13"></span>
+            <span style="--i:15"></span>
+            <span style="--i:26"></span>
+            <span style="--i:17"></span>
+            <span style="--i:13"></span>
+            <span style="--i:28"></span>
+            <span style="--i:11"></span>
+            <span style="--i:12"></span>
+            <span style="--i:24"></span>
+            <span style="--i:10"></span>
+            <span style="--i:14"></span>
+            <span style="--i:23"></span>
+            <span style="--i:18"></span>
+            <span style="--i:16"></span>
+            <span style="--i:19"></span>
+            <span style="--i:20"></span>
+            <span style="--i:22"></span>
+            <span style="--i:25"></span>
+            <span style="--i:18"></span>
+            <span style="--i:21"></span>
+            <span style="--i:13"></span>
+            <span style="--i:15"></span>
+            <span style="--i:26"></span>
+            <span style="--i:17"></span>
+            <span style="--i:13"></span>
+            <span style="--i:28"></span>
             <span style="--i:28"></span>
         </div>
     </div>
@@ -71,18 +111,21 @@
         <div class="tagline">
             Safeguarding Your Journey from <br><span>Dark Patterns</span>
         </div>
-        <form >
+        <form action='/check_pattern' method='POST'>
             <div class="container">
                 <label class="input-link">Enter your link</label>
                 <div class="inputs">
-                    <input type="url" id="urlInput" placeholder="https://example.com"  required>
+                    <input type="url" name="url" id="urlInput" placeholder="https://example.com"  required>
                 </div>
             </div>
             <div class="input-button">
-                <button  class="btn" onclick="checkTimer()">Check</button>
+                <button class="btn" onclick="checkTimer()" type="submit">Check</button>
             </div>
-        </form>
+        </form>        
     </section>
+    <div>
+        <br><h4><b>{{message}}</b></h4>
+    </div>
     <section class="instruction" id="inst">
     <h1>Steps to follow</h1>
     <div class="steps">
@@ -163,20 +206,24 @@
                 eye.style.transform = "rotate(" + rot + "deg)";
             });
         }
-        function checkTimer() {
-            var url = document.getElementById('urlInput').value;
-
-            fetch('/check_timer', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                },
-                body: 'url=' + encodeURIComponent(url),
-            })
-            .catch(error => {
-                console.error('Error:', error);
+        window.addEventListener('mousemove',function(e){
+            var arr=[1,.8];
+    
+            arr.forEach(function(i){
+                var x=( 1 - i )*75;
+                var star=document.createElement('div');
+    
+                star.className='star';
+                star.style.top=e.pageY+Math.round(Math.random()*x-x/2)+'px';
+                star.style.left=e.pageX+Math.round(Math.random()*x-x/2)+'px';
+    
+                document.body.appendChild(star);
+    
+                window.setTimeout(function(){
+                    document.body.removeChild(star);
+                },Math.round(Math.random()*i*600));
             });
-        }
+        },false);
 
     </script>
 </body>

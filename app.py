@@ -1,8 +1,6 @@
 from flask import Flask, render_template, request, jsonify
-from ml_model.scraper import check_timer_issues, find_text_by_ids
+from ml_model.scraper import check_timer_issues, scraping_text
 from ml_model.predict import predict_pattern_category
-from bs4 import BeautifulSoup
-import requests
 import pygame
 
 app = Flask(__name__)
@@ -22,36 +20,30 @@ def log():
 def index():
     return render_template('index.html')
 
-@app.route('/check_timer', methods=['POST'])
-@app.route('/check_timer', methods=['POST'])
+@app.route('/check_pattern', methods=['POST','GET'])
 def check_timer():
     try:
         url = request.form['url']
         has_timer_issues = check_timer_issues(url)
 
-        if has_timer_issues:
-            # Extract the text from the URL
-            response = requests.get(url)
-            soup = BeautifulSoup(response.content, 'html.parser')
-            html_content = str(soup)
-            text = find_text_by_ids(html_content)
-
-            # Predict the pattern category of the text
+        text = scraping_text(url)
+        if text : 
             pattern_category = predict_pattern_category(text)
+        else : 
+            pattern_category = "No Dark Pattern found"
 
-            # Play the sound based on the pattern category
-            if pattern_category == 'False Urgency':
-                false_sound.play()
-            else:
-                true_sound.play()
-
-            print(pattern_category)
-            return jsonify({'success': True, 'pattern_category': pattern_category})
-        else:
+        if has_timer_issues:
             false_sound.play()
-            return jsonify({'success': True})
+        else:
+            true_sound.play()
+
+        if pattern_category : 
+            return render_template('index.html',message = pattern_category)
+        else : 
+            return render_template('index.html', message = "No Dark pattern Keyword found")
+    
     except Exception as e:
-        print(f"Error in check_timer endpoint: {e}")
+        print(f"Error in check_pattern endpoint: {e}")
         return jsonify({'error': 'Internal server error'}), 500
 
 if __name__ == '__main__':

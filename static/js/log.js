@@ -2,6 +2,7 @@ const redirectLog = document.getElementById('log');
 const redirectSignUp = document.getElementById('signup');
 const registerLink = document.querySelector('.register-link');
 const wrapper = document.querySelector('.wrapper');
+const loginlink = document.querySelector('.login-link')
 
 redirectLog.onclick = (event) => {
     event.preventDefault();
@@ -17,6 +18,9 @@ redirectLog.onclick = (event) => {
 
 registerLink.onclick = () => {
     wrapper.classList.add('active');
+};
+loginlink.onclick = () => {
+    wrapper.classList.remove('active');
 };
 
 redirectSignUp.onclick = (event) => {
