@@ -37,10 +37,7 @@ def check_timer():
         else:
             true_sound.play()
 
-        if pattern_category : 
-            return render_template('index.html',message = pattern_category)
-        else : 
-            return render_template('index.html', message = "No Dark pattern Keyword found")
+        return render_template('index.html',message = pattern_category)
     
     except Exception as e:
         print(f"Error in check_pattern endpoint: {e}")
