@@ -15,6 +15,10 @@ DarkShield is a web application designed to analyze websites for the presence of
 - Beautiful Soup library for extracting data from HTML and XML documents.
 - scikit-learn library for machine learning and data analysis.
 
+## Machine Learning (ML) for Dark Pattern Classification
+
+DarkShield utilizes logistic regression as a machine learning model to classify dark patterns on specific websites. The trained model is saved using the `pickle` module. Currently, it works for websites such as Amazon and Flipkart, and efforts are ongoing to make it compatible with other websites through regular updates.
+
 ## Installation
 
 ### Prerequisites
@@ -64,7 +68,6 @@ Install the required dependencies using:
 ```bash
 pip install -r requirements.txt
 ```
-
 ## How to Use
 
 1. Copy the link from an E-commerce website.
