@@ -9,8 +9,8 @@ app = Flask(__name__)
 pygame.mixer.init()
 
 # Load the siren sound file
-true_sound = pygame.mixer.Sound("G:/DarkShield/Integraion/static/audio/detected.mp3")
-false_sound = pygame.mixer.Sound("G:/DarkShield/Integraion/static/audio/notdetected.mp3")
+true_sound = pygame.mixer.Sound("C:\\Users\\ABHEESHTA\\Desktop\\DarkSheild\\static\\audio\\detected.mp3")
+false_sound = pygame.mixer.Sound("C:\\Users\\ABHEESHTA\\Desktop\\DarkSheild\\static\\audio\\notdetected.mp3")
 
 @app.route('/')
 def log():
@@ -33,9 +33,9 @@ def check_timer():
             pattern_category = "No Dark Pattern found"
 
         if has_timer_issues:
-            false_sound.play()
-        else:
             true_sound.play()
+        else:
+            false_sound.play()
 
         return render_template('index.html',message = pattern_category)
     

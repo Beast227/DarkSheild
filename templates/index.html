@@ -119,13 +119,13 @@
                 </div>
             </div>
             <div class="input-button">
-                <button class="btn" onclick="checkTimer()" type="submit">Check</button>
+                <button class="btn" onclick="checkTimer()" type="submit" id="check">Check</button>
             </div>
         </form>        
+        <div id="msg">
+            <br><h4><b>{{message}}</b></h4>
+        </div>
     </section>
-    <div>
-        <br><h4><b>{{message}}</b></h4>
-    </div>
     <section class="instruction" id="inst">
     <h1>Steps to follow</h1>
     <div class="steps">
@@ -194,18 +194,22 @@
         </form>
     </section>
     <script>
-        document.querySelector('body').addEventListener('mousemove', eyeball);
+document.getElementById('check').onclick = () => {
+    if (document.getElementById('urlInput').validity.valid) {
+        document.getElementById('msg').style.display = 'flex';
+        const msgHeight = document.getElementById('msg').offsetHeight;
+        const scrollTo = window.scrollY + (window.innerHeight * 0.25) - (msgHeight / 2);
 
-        function eyeball(event) {
-            var eye = document.querySelectorAll('.eye');
-            eye.forEach(function (eye) {
-                let x = (eye.getBoundingClientRect().left) + (eye.clientWidth / 2);
-                let y = (eye.getBoundingClientRect().top) + (eye.clientHeight / 2);
-                let radian = Math.atan2(event.pageX - x, event.pageY - y);
-                let rot = (radian * (180 / Math.PI) * -1) + 270;
-                eye.style.transform = "rotate(" + rot + "deg)";
-            });
-        }
+        // Scroll to the calculated position
+        window.scrollTo({
+            top: scrollTo,
+            behavior: 'smooth'
+        });
+    } else {
+        document.getElementById('msg').style.display = 'none';
+    }
+};
+
         window.addEventListener('mousemove',function(e){
             var arr=[1,.8];
     
