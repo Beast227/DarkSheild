@@ -168,9 +168,9 @@ body{
     display: flex;
 }
 
-/* .tag{
+.tag{
     position: relative;
-} */
+}
 .bubbles span{
     position:relative;
     min-width: 30px;
