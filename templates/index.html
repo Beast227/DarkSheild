@@ -8,110 +8,20 @@
     <link rel="icon" alt="logo" sizes="180x180" href="{{url_for('static' , filename = 'images/logo.png')}}"/>
 </head>
 <body id = "myModal">
-    <div class="bg">
-        <div class="bubbles">
-            <span style="--i:11"></span>
-            <span style="--i:12"></span>
-            <span style="--i:24"></span>
-            <span style="--i:10"></span>
-            <span style="--i:14"></span>
-            <span style="--i:23"></span>
-            <span style="--i:18"></span>
-            <span style="--i:16"></span>
-            <span style="--i:19"></span>
-            <span style="--i:20"></span>
-            <span style="--i:22"></span>
-            <span style="--i:25"></span>
-            <span style="--i:18"></span>
-            <span style="--i:21"></span>
-            <span style="--i:13"></span>
-            <span style="--i:15"></span>
-            <span style="--i:26"></span>
-            <span style="--i:17"></span>
-            <span style="--i:13"></span>
-            <span style="--i:28"></span>
-            <span style="--i:11"></span>
-            <span style="--i:12"></span>
-            <span style="--i:24"></span>
-            <span style="--i:10"></span>
-            <span style="--i:14"></span>
-            <span style="--i:23"></span>
-            <span style="--i:18"></span>
-            <span style="--i:16"></span>
-            <span style="--i:19"></span>
-            <span style="--i:20"></span>
-            <span style="--i:22"></span>
-            <span style="--i:25"></span>
-            <span style="--i:18"></span>
-            <span style="--i:21"></span>
-            <span style="--i:13"></span>
-            <span style="--i:15"></span>
-            <span style="--i:26"></span>
-            <span style="--i:17"></span>
-            <span style="--i:13"></span>
-            <span style="--i:11"></span>
-            <span style="--i:12"></span>
-            <span style="--i:24"></span>
-            <span style="--i:10"></span>
-            <span style="--i:14"></span>
-            <span style="--i:23"></span>
-            <span style="--i:18"></span>
-            <span style="--i:16"></span>
-            <span style="--i:19"></span>
-            <span style="--i:20"></span>
-            <span style="--i:22"></span>
-            <span style="--i:25"></span>
-            <span style="--i:18"></span>
-            <span style="--i:21"></span>
-            <span style="--i:13"></span>
-            <span style="--i:15"></span>
-            <span style="--i:26"></span>
-            <span style="--i:17"></span>
-            <span style="--i:13"></span>
-            <span style="--i:28"></span>
-            <span style="--i:11"></span>
-            <span style="--i:12"></span>
-            <span style="--i:24"></span>
-            <span style="--i:10"></span>
-            <span style="--i:14"></span>
-            <span style="--i:23"></span>
-            <span style="--i:18"></span>
-            <span style="--i:16"></span>
-            <span style="--i:19"></span>
-            <span style="--i:20"></span>
-            <span style="--i:22"></span>
-            <span style="--i:25"></span>
-            <span style="--i:18"></span>
-            <span style="--i:21"></span>
-            <span style="--i:13"></span>
-            <span style="--i:15"></span>
-            <span style="--i:26"></span>
-            <span style="--i:17"></span>
-            <span style="--i:13"></span>
-            <span style="--i:28"></span>
-            <span style="--i:28"></span>
-        </div>
-    </div>
     <nav class="tag">
-        <img class="i" alt="img" height="70px" width="70px" src="{{url_for('static' , filename = 'images/logo.png')}}"/>
-        <div class="website-branding">DARK SHIELD</div>
+       
+        <div class="website-branding"> <img class="i" alt="img" height="70px" width="70px" src="{{url_for('static' , filename = 'images/logo.png')}}"/><p>DARK SHIELD</p></div>
         <div class="shortcuts">
             <div class="about"><a href="#about">About</a></div>
             <div class="about"><a href="#inst">Instructions</a></div>
             <div class="about"><a href="#contact">Contact us</a></div>
         </div>
     </nav>
-    <div class="face">
-        <div class="eyes">
-            <div class="eye"></div>
-            <div class="eye"></div>
-        </div>
-    </div>
     <section class="home">
         <div class="tagline">
-            Safeguarding Your Journey from <br><span>Dark Patterns</span>
+            Safeguarding Your Journey from <br><div class="highlight"><span>Dark Patterns</span><img src="../static/images/underline.png" alt=""></div>
         </div>
-        <form action='/check_pattern' method='POST'>
+        <form action='/check_pattern' method='POST' class="form_check">
             <div class="container">
                 <label class="input-link">Enter your link</label>
                 <div class="inputs">
@@ -156,9 +66,12 @@
     <section class="about-awarness" id="about">
         <h1>About</h1>
         <div class="cards">
-            <div class="card-about"><div class="front"><h3>What is dark pattern?</h3></div><div class="back"><p>An e-commerce dark pattern is a deceptive design tactic in online shopping interfaces that tricks or manipulates users into unintended actions, impacting their shopping decisions and overall experience.</p></div></div>
+            <div class="card-about">
+                <h3>What is dark pattern?</h3>
+                <p>An e-commerce dark pattern is a deceptive design tactic in online shopping interfaces that tricks or manipulates users into unintended actions, impacting their shopping decisions and overall experience.</p>
+            </div>
             <div class="youtube "><iframe src="https://www.youtube.com/embed/SyeZf50jQXU?si=cOlSQfiRN8z0Eh-c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
-            <div class="card-about"><div class="front"><h3>Examples</h3></div><div class="back">
+            <div class="card-about"><h3>Examples</h3>
                 <ul>
                     <li>Hidden Fees</li>
                     <li>Tricky Opt-Outs </li>
@@ -188,7 +101,7 @@
                 <label for="feedback">Enter your feedback</label>
             </div>
             <div class="button">
-                <button>Submit</button>
+                <button type="submit">Submit</button>
             </div>
             
         </form>
@@ -209,25 +122,27 @@ document.getElementById('check').onclick = () => {
         document.getElementById('msg').style.display = 'none';
     }
 };
+    const form = document.getElementById("contact");
 
-        window.addEventListener('mousemove',function(e){
-            var arr=[1,.8];
-    
-            arr.forEach(function(i){
-                var x=( 1 - i )*75;
-                var star=document.createElement('div');
-    
-                star.className='star';
-                star.style.top=e.pageY+Math.round(Math.random()*x-x/2)+'px';
-                star.style.left=e.pageX+Math.round(Math.random()*x-x/2)+'px';
-    
-                document.body.appendChild(star);
-    
-                window.setTimeout(function(){
-                    document.body.removeChild(star);
-                },Math.round(Math.random()*i*600));
-            });
-        },false);
+    form.addEventListener("submit", function(event) {
+        event.preventDefault();
+        const name = form.querySelector('input[type="text"]').value;
+        const email = form.querySelector('input[type="Email"]').value;
+        const feedback = form.querySelector('textarea').value;
+
+        console.log("Name:", name);
+        console.log("Email:", email);
+        console.log("Feedback:", feedback);
+
+        form.reset();
+
+        // Show an alert or message to the user (optional)
+        alert("Thank you for your feedback !!");
+
+    });
+
+
+      
 
     </script>
 </body>
